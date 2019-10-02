@@ -17,6 +17,9 @@ class MoviesController < ApplicationController
       Hash[MoviesHelper.all_ratings.map {|k| [k, true]}]
     #ALL ratings
     @all_ratings = Hash[MoviesHelper.all_ratings.map {|k| [k, @checked_ratings.key?(k)]}]
+    # Remembers the session - did this in Part 2. Didn't realize this would be
+    # part of Part 3 when I looked into doing the checkboxes and updating the list based on them.
+    # So I had already used [session] for the sort and ratings.
     session[:sort] = @sort
     session[:ratings] = @checked_ratings
     if !params[:sort] && !params[:ratings]
